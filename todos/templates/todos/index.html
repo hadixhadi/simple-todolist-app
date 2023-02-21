@@ -16,7 +16,8 @@
   <div class="container">
     <div class="form">
       <form action="" method="post">
-        <input type="text" class="input" />
+        {% csrf_token %}
+        <input type="text" class="input" name="title" />
         <input type="submit" class="add" value="Add Task" />
       </form>
     </div>
@@ -24,11 +25,11 @@
       {% for task in tasks %}
         <div class="task">
           <p>{{task.title}}</p>
-          <span class="del">delet</span>
+          <a href="delet/{{task.id}}"><span class="del">delet</span></a>
         </div>
       {% endfor %}
     </div>
-    <div class="delete-all">Delete all</div>
+    <div class="delete-all"><a href="deletall/">Delete all</a></div>
   </div>
  
 </body>
